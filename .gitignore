@@ -1,0 +1,10 @@
+__pycache__/
+out/
+*.pyc
+_tmp_selftest.*
+# generated (deterministic) -- re-created by make_model.py / build_web.py
+data/pusaka_model.obj
+data/relief.ppm
+web/assets/
+web/*_three.ppm
+# DO commit: data/mymodel.obj + its texture, ref/temple_ref.ppm

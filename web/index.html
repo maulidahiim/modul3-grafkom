@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pusaka3D &mdash; Modul 3: Model Bertexture Real-Time (Three.js)</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 14px/1.5 system-ui, sans-serif; background: #12121a; color: #e8e8ef; }
+  header { padding: .6rem 1rem; background: #1c1c28; border-bottom: 1px solid #333; }
+  header h1 { font-size: 1rem; margin: 0; }
+  header p { margin: .25rem 0 0; font-size: .8rem; color: #a8a8b8; max-width: 760px; }
+  #wrap { padding: 1rem; }
+  canvas { border: 1px solid #333; display: block; max-width: 100%; height: auto; }
+  button { font: inherit; padding: .3rem .7rem; margin: .6rem .4rem 0 0; }
+  #fps { font-variant-numeric: tabular-nums; margin-left: .5rem; color: #9fd49f; }
+  #status { font-size: .75rem; color: #999; max-width: 760px; word-break: break-word; }
+  .hint { font-size: .78rem; color: #999; max-width: 560px; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<header>
+  <h1>Pusaka3D &mdash; model bertexture, real-time (Modul 3)</h1>
+  <p>OBJ, texture, kamera, cahaya, dan matriks model yang <em>sama</em> dengan
+     <code>raster3d.py</code> / <code>raytrace.py</code> (dari <code>assets/scene.json</code>).
+     Three.js mengerjakan tumpukan MVP, pembagian w, z-buffer, dan texturing
+     perspective-correct di GPU. Drag untuk orbit, scroll untuk zoom.</p>
+</header>
+<div id="wrap">
+  <canvas id="c" width="512" height="512"></canvas>
+  <div>
+    <button id="reset">Reset kamera</button>
+    <button id="export">Export PPM</button>
+    <button id="wire">Wireframe</button>
+    <button id="mip">Mipmap: off (bilinear)</button>
+    <span id="fps"></span>
+  </div>
+  <p id="status">memuat&hellip;</p>
+  <p class="hint">Untuk perbandingan: klik <b>Reset kamera</b> dulu, lalu <b>Export PPM</b>,
+     lalu <code>python compare.py out/temple_raster.ppm &lt;file&gt;_three.ppm --diff out/diff_web.ppm</code>
+     (render NumPy pada 512&times;512). Harapkan &sim;30&nbsp;dB dengan residual di tepi
+     siluet (MSAA), bukan di bagian dalam. Tambahkan <code>?aa=0</code> di URL untuk mematikan MSAA.</p>
+</div>
+<script type="module" src="viewer.js"></script>
+</body>
+</html>

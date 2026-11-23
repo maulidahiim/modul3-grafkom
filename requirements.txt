@@ -1,0 +1,6 @@
+# Module 3 -- 3D Transforms, Projection, Texture & Real-Time Rendering
+# The transform stack, the z-buffer rasteriser and the ray tracer are NumPy
+# only. Pillow is used ONLY for convert_texture.py and optional cross-checks.
+# Lock these to YOUR versions before submitting:  pip freeze | grep -iE "numpy|pillow"
+numpy>=1.24,<3
+pillow>=10.0
